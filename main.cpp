@@ -33,21 +33,24 @@ int main(void) {
 	
 	// operatore += con tipo double
 	
-	double c5 = 0.56;
-	c1 += c5;
+	double d1 = 0.56;
+	c1 += d1;
 	
 	// operatore + con tipo double
 	
-	std::cout << "Somma con un numero decimale: " << c1 << " + " << c5 << " = " << c1+c5 << std::endl;
+	std::cout << "Somma con un numero decimale: " << c1 << " + " << d1 << " = " << c1+d1 << std::endl;
+	std::cout << "Commutatività somma con un numero decimale: " << d1 << " + " << c1 << " = " << d1+c1 << std::endl;
+
 
 	// operatore *= con tipo double
 	
-	c1 *= c5;
+	c1 *= d1;
 	
 	// operatore * con tipo double
 	
-	double d2 = 2;
+	double d2 = 2.5;
 	std::cout << "Prodotto con un numero decimale: " << c2 << " * " << d2 << " = " << c2*d2 << std::endl;
+	std::cout << "Commutatività prodotto con un numero decimale: " << d2 << " * " << c2 << " = " << d2*c2 << std::endl;
 
 	return 0;
 }
