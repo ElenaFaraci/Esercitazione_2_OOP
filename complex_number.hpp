@@ -46,7 +46,7 @@ public:
         im = b+d;
         return *this;
 	}
-	
+
     // Operatore += tra un complesso a sinistra e un I (floating point) a destra.
      complex_number& operator+=(const I& other) {
         re += other;
@@ -78,11 +78,11 @@ public:
         im = a*d + c*b;
         return *this;
 	}
-	
+
     // Operatore *= tra un complesso a sinistra e un I a destra.
      complex_number& operator*=(const I& other) {
-        re *= other*re;
-        im *= other*im;
+        re *= other;
+        im *= other;
         return *this;
 	}
 
@@ -92,16 +92,15 @@ public:
         comp *= other;
         return comp;
     }
-    
+
     // Operatore * tra un complesso a sinistra e un I a destra.
-     complex_number operator*(const I& other) {
-        re *= other;
-        im *= other;
-        return *this;
+     complex_number operator*(const I& other) const {
+	    complex_number comp = *this;
+        comp *= other;
+        return comp;
 	}
 
 };
-
 
 // Overload di <<, per stampare i numeri complessi.
 template<typename I>
@@ -128,3 +127,19 @@ template<typename I>
 complex_number<I> coniugato(const complex_number<I>& r) {
 		return complex_number<I>(r.real_part(), -r.im_part());
 	}
+
+// commutatività degli operatori + e * nel caso di tipo I a sinistra e complesso a destra
+
+template<typename I>
+complex_number<I>
+operator+(const I& i, const complex_number<I>& r)
+{
+    return r + i;
+}
+
+template<typename I>
+complex_number<I>
+operator*(const I& i, const complex_number<I>& r)
+{
+    return r * i;
+}
